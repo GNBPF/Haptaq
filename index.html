@@ -2,7 +2,7 @@
 <html lang="en" class="scroll-smooth bg-zinc-950 text-white antialiased selection:bg-white selection:text-zinc-950">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
     <title>Haptaq | Strategic Growth Partner</title>
     
     <!-- Favicon -->
@@ -81,6 +81,28 @@
         body {
           cursor: auto;
         }
+      }
+      
+      /* Better touch targets for mobile */
+      button, a, input, textarea, select {
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+      }
+      
+      /* Prevent text size adjustment on iOS */
+      * {
+        -webkit-text-size-adjust: 100%;
+      }
+      
+      /* Smooth scrolling for all devices */
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      /* Better image rendering */
+      img, video {
+        max-width: 100%;
+        height: auto;
       }
     </style>
   <script type="importmap">

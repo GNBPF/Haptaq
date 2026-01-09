@@ -24,14 +24,14 @@ const Navbar: React.FC = () => {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-      className="fixed top-0 left-0 w-full z-50 px-6 py-6 md:px-12 flex justify-between items-center mix-blend-difference text-white"
+      className="fixed top-0 left-0 w-full z-50 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-24 py-4 sm:py-5 md:py-6 flex justify-between items-center mix-blend-difference text-white"
     >
       <div className="cursor-default">
-        <img src="/logo.png" alt="HAPTAQ" className="h-4 md:h-6 w-auto" />
+        <img src="/logo.png" alt="HAPTAQ" className="h-3 sm:h-4 md:h-5 lg:h-6 w-auto" />
       </div>
       <button 
         onClick={openModal}
-        className="text-white text-sm uppercase tracking-widest hover:underline decoration-1 underline-offset-4"
+        className="text-white text-xs sm:text-sm md:text-base uppercase tracking-widest hover:underline decoration-1 underline-offset-2 sm:underline-offset-4 py-2 px-2 touch-manipulation"
         data-hover-trigger
       >
         Contact

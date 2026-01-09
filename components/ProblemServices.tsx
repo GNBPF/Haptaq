@@ -23,7 +23,7 @@ const ProblemStatement: React.FC<{ text: string; delay: number }> = ({ text, del
         delay: isInView ? delay : 0,
         ease: [0.16, 1, 0.3, 1]
       }}
-      className="text-4xl md:text-6xl font-medium tracking-tight mb-4 md:mb-6 text-center"
+      className="text-[clamp(2rem,6vw,6rem)] font-medium tracking-tight mb-3 sm:mb-4 md:mb-5 lg:mb-6 text-center"
     >
       {text}
     </motion.p>
@@ -37,15 +37,15 @@ const PillarCard: React.FC<{ title: string; desc: string; icon: React.ReactNode;
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.8, delay: index * 0.12 }}
-      className="group relative p-6 md:p-8 border-l border-zinc-900 hover:bg-zinc-900/30 transition-colors duration-500 flex flex-col justify-center"
+      className="group relative p-5 sm:p-6 md:p-7 lg:p-8 xl:p-10 border-l border-zinc-900 hover:bg-zinc-900/30 transition-colors duration-500 flex flex-col justify-center"
       data-hover-trigger
     >
       <div className="absolute top-0 left-0 w-[1px] h-0 bg-white group-hover:h-full transition-all duration-700 ease-out" />
-      <div className="mb-4 text-zinc-500 group-hover:text-white transition-colors duration-500">
+      <div className="mb-3 sm:mb-4 md:mb-5 text-zinc-500 group-hover:text-white transition-colors duration-500">
         {icon}
       </div>
-      <h3 className="text-xl font-medium mb-3">{title}</h3>
-      <p className="text-zinc-500 leading-relaxed font-light">{desc}</p>
+      <h3 className="text-lg sm:text-xl md:text-2xl font-medium mb-2 sm:mb-3 md:mb-4">{title}</h3>
+      <p className="text-sm sm:text-base md:text-lg text-zinc-500 leading-relaxed font-light">{desc}</p>
     </motion.div>
   );
 };
@@ -55,15 +55,15 @@ const ProcessStep: React.FC<{ step: any; isActive: boolean }> = ({ step, isActiv
     <motion.div 
       animate={{ opacity: isActive ? 1 : 0.3 }}
       transition={{ duration: 0.5 }}
-      className="py-12 border-b border-zinc-900 last:border-0"
+      className="py-6 sm:py-8 md:py-10 lg:py-12 border-b border-zinc-900 last:border-0"
     >
-      <div className="flex items-baseline gap-4 mb-4">
-        <span className="text-xs font-mono text-zinc-500">0{step.number}</span>
-        <h3 className="text-2xl md:text-3xl font-medium">{step.title}</h3>
+      <div className="flex items-baseline gap-3 sm:gap-4 md:gap-5 mb-3 sm:mb-4 md:mb-5">
+        <span className="text-[0.625rem] sm:text-xs md:text-sm font-mono text-zinc-500">0{step.number}</span>
+        <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium">{step.title}</h3>
       </div>
       <motion.p 
         animate={{ height: isActive ? 'auto' : 0, opacity: isActive ? 1 : 0 }}
-        className="text-zinc-400 font-light max-w-md overflow-hidden"
+        className="text-sm sm:text-base md:text-lg text-zinc-400 font-light max-w-md overflow-hidden leading-relaxed"
       >
         {step.description}
       </motion.p>
@@ -101,10 +101,10 @@ const ProblemServices: React.FC = () => {
   return (
     <div className="bg-zinc-950 relative z-20">
       {/* Combined Section - Single Screen Height */}
-      <section className="h-screen flex flex-col px-6 md:px-12 lg:px-24">
+      <section className="min-h-screen flex flex-col px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-24 py-12 sm:py-16 md:py-20">
         {/* Problem Section */}
-        <div className="flex-1 flex flex-col items-center justify-center">
-          <div className="max-w-4xl w-full">
+        <div className="flex-1 flex flex-col items-center justify-center min-h-[40vh] sm:min-h-[45vh] md:min-h-[50vh]">
+          <div className="max-w-6xl w-full">
             <ProblemStatement text="Your product is strong." delay={0} />
             <ProblemStatement text="Your market exists." delay={0.1} />
             <ProblemStatement text="Access is the bottleneck." delay={0.2} />
@@ -112,8 +112,8 @@ const ProblemServices: React.FC = () => {
         </div>
 
         {/* Pillars Section */}
-        <div className="flex-1 border-t border-zinc-900">
-          <div className="max-w-7xl mx-auto h-full grid grid-cols-1 md:grid-cols-3 gap-0">
+        <div className="flex-1 border-t border-zinc-900 mt-8 sm:mt-12 md:mt-16">
+          <div className="max-w-7xl mx-auto h-full grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-0 min-h-[40vh] sm:min-h-[45vh] md:min-h-[50vh]">
             <PillarCard 
               index={0}
               title="Strategic Access" 
@@ -141,12 +141,12 @@ const ProblemServices: React.FC = () => {
         <div className="sticky top-0 h-screen flex flex-col md:flex-row overflow-hidden">
           
           {/* Left: Title & Progress */}
-          <div className="w-full md:w-1/2 h-full flex flex-col justify-center px-6 md:px-12 lg:px-24 bg-zinc-950 z-10 border-r border-zinc-900/50">
+          <div className="w-full md:w-1/2 h-full flex flex-col justify-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-24 bg-zinc-950 z-10 border-r border-zinc-900/50">
             <motion.h2 
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 1 }}
-              className="text-4xl font-medium mb-8"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium mb-6 sm:mb-8 md:mb-10"
             >
               The Protocol
             </motion.h2>
@@ -156,11 +156,11 @@ const ProblemServices: React.FC = () => {
                  style={{ width: useTransform(scrollYProgress, [0, 1], ["0%", "100%"]) }}
                />
             </div>
-            <p className="mt-4 text-sm text-zinc-500 font-mono">STEP 0{currentStep + 1} / 05</p>
+            <p className="mt-3 sm:mt-4 md:mt-5 text-xs sm:text-sm md:text-base text-zinc-500 font-mono">STEP 0{currentStep + 1} / 05</p>
           </div>
 
           {/* Right: Scrolling Steps */}
-          <div className="w-full md:w-1/2 h-full flex flex-col justify-center px-6 md:px-12 lg:pr-24">
+          <div className="w-full md:w-1/2 h-full flex flex-col justify-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:pr-24">
              {steps.map((step, idx) => (
                <ProcessStep key={idx} step={step} isActive={currentStep === idx} />
              ))}
